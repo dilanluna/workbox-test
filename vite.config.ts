@@ -7,9 +7,13 @@ export default defineConfig({
 	plugins: [
 		react(),
 		VitePWA({
-			registerType: 'autoUpdate',
-			devOptions: { enabled: true },
-			workbox: { globPatterns: ['**/*.{html,css,js,svg}'] },
+			strategies: 'injectManifest',
+			srcDir: 'src',
+			filename: 'sw.ts',
+			devOptions: {
+				enabled: true,
+				type: 'module',
+			},
 		}),
 	],
 });
